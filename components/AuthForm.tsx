@@ -89,7 +89,6 @@ export default function AuthForm({ onSuccess }: Props) {
               {loading?<span className="w-4 h-4 rounded-full border-2 border-slate-900 border-t-transparent spin"/>:mode==='login'?<LogIn size={16}/>:<UserPlus size={16}/>}
               {mode==='login'?'Đăng nhập':'Đăng ký'}
             </button>
-            {mode==='login'&&<p className="text-center text-xs mt-2 font-noto" style={{color:'var(--text-dim)'}}>Admin: <span style={{color:'var(--gold)'}}>admin / admin123</span></p>}
           </div>
         </div>
       </div>
