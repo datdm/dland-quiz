@@ -27,14 +27,15 @@ export default function AdminUpload({ onUploaded }: Props) {
   };
   return (
     <div className="mystical-card p-6">
-      <h3 className="text-amber-400 font-bold text-lg mb-4 gold-glow font-cinzel">⬆ Upload Đề Thi (JSON)</h3>
-      <div className={`border-2 border-dashed rounded-xl p-8 text-center cursor-pointer transition-all ${drag?'border-teal-500 bg-teal-900/20':'border-purple-800/40 hover:border-teal-600/50 hover:bg-teal-900/10'}`}
+      <h3 className="font-bold text-lg mb-4 gold-glow font-cinzel" style={{color:'var(--gold)'}}>⬆ Upload Đề Thi (JSON)</h3>
+      <div className={`border-2 border-dashed rounded-xl p-8 text-center cursor-pointer transition-all ${drag?'border-teal-500':''}`}
+        style={drag?{}:{borderColor:'color-mix(in srgb, var(--teal) 30%, transparent)'}}
         onDragOver={e=>{e.preventDefault();setDrag(true);}} onDragLeave={()=>setDrag(false)}
         onDrop={e=>{e.preventDefault();setDrag(false);const f=e.dataTransfer.files[0];if(f)process(f);}}
         onClick={()=>ref.current?.click()}>
-        <UploadCloud size={32} className="mx-auto mb-3 text-teal-500"/>
-        <p className="text-purple-300 text-sm font-noto">Kéo thả hoặc click để chọn file JSON</p>
-        <p className="text-purple-600 text-xs mt-1 font-noto">JLPT · TOEIC · English · Math · ...</p>
+        <UploadCloud size={32} className="mx-auto mb-3" style={{color:'var(--teal)'}}/>
+        <p className="text-sm font-noto" style={{color:'var(--text-secondary)'}}>Kéo thả hoặc click để chọn file JSON</p>
+        <p className="text-xs mt-1 font-noto" style={{color:'var(--text-dim)'}}>JLPT · TOEIC · English · Math · 聴解 hỗ trợ audioUrl</p>
         <input ref={ref} type="file" accept=".json" className="hidden" onChange={e=>{const f=e.target.files?.[0];if(f)process(f);}}/>
       </div>
       {status!=='idle'&&(

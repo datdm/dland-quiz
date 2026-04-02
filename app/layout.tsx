@@ -1,14 +1,15 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import { ThemeProvider } from '@/contexts/ThemeContext'
 
 export const metadata: Metadata = {
-  title: '武林考験 — Dland Quiz Platform',
-  description: 'Multi-subject dland quiz platform',
+  title: 'Dland Quiz — 武林考験',
+  description: 'Multi-subject quiz platform with mystical & cream themes',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="vi" style={{ background: '#030308' }}>
+    <html lang="vi">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -16,16 +17,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Noto+Serif+JP:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500&display=swap"
           rel="stylesheet"
         />
+        <script dangerouslySetInnerHTML={{__html: `
+          (function(){
+            try {
+              var t = localStorage.getItem('qp_theme') || 'dark';
+              document.documentElement.setAttribute('data-theme', t);
+              document.documentElement.style.background = t === 'light' ? '#fdf6e3' : '#030308';
+            } catch(e){}
+          })();
+        `}} />
       </head>
-      <body
-        style={{
-          background: 'radial-gradient(ellipse at 25% 25%, #3b2a6d 0%, #123c3b 40%, #0a0f1f 75%, #030308 100%)',
-          backgroundAttachment: 'fixed',
-          minHeight: '100vh',
-        }}
-        className="antialiased"
-      >
-        {children}
+      <body className="antialiased">
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   )

@@ -7,8 +7,8 @@ export default function SectionNav({ sections, passages=[], answers, currentQues
     <div className="overflow-y-auto flex-1 space-y-4 pr-1">
       {sections.map(section=>(
         <div key={section.name}>
-          <p className="text-xs text-amber-400/80 font-semibold mb-2 tracking-wide font-cinzel">
-            {section.mondai&&<span className="text-purple-500 mr-1">{section.mondai}</span>}{section.name}
+          <p className="text-xs font-semibold mb-2 tracking-wide font-cinzel" style={{color:'color-mix(in srgb, var(--gold) 80%, transparent)'}}>
+            {section.mondai&&<span className="mr-1" style={{color:'var(--text-dim)'}}>{section.mondai}</span>}{section.name}
           </p>
           {(section.questionIds||[]).length>0&&(
             <div className="flex flex-wrap gap-1.5 mb-2">
@@ -22,7 +22,8 @@ export default function SectionNav({ sections, passages=[], answers, currentQues
             const pg=passages.find(p=>p.id===pid); if(!pg) return null;
             return (
               <div key={pid} className="ml-1 mb-2">
-                <button className="flex items-center gap-1 text-xs text-teal-400/80 hover:text-teal-300 mb-1.5 transition font-noto"
+                <button className="flex items-center gap-1 text-xs mb-1.5 transition font-noto"
+                  style={{color:`color-mix(in srgb, var(--teal) 80%, transparent)`}}
                   onClick={()=>onNavigatePassage?.(pid)}>
                   <BookOpen size={10}/><span>{pg.mondai||''} {pg.passageTitle||pid}</span>
                 </button>

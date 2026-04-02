@@ -71,11 +71,11 @@ export default function QuizPage() {
 
   const navQ = (qid: number) => {
     setDrawerOpen(false);
-    setTimeout(() => document.getElementById(`question-${qid}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 80);
+    setTimeout(() => document.getElementById(`question-${qid}`)?.scrollIntoView({ behavior:'smooth', block:'start' }), 80);
   };
   const navP = (pid: string) => {
     setDrawerOpen(false);
-    setTimeout(() => document.getElementById(`passage-${pid}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 80);
+    setTimeout(() => document.getElementById(`passage-${pid}`)?.scrollIntoView({ behavior:'smooth', block:'start' }), 80);
   };
 
   const handleSubmit = useCallback(async (force = false) => {
@@ -88,9 +88,9 @@ export default function QuizPage() {
     const answered = allQIds.filter(qid => answersRef.current[qid]?.length > 0).length;
     if (!force) {
       const ok = await showDialog({
-        type: 'confirm', title: 'Nộp Bài',
-        message: `Bạn đã trả lời ${answered}/${allQIds.length} câu.\nBạn có chắc muốn nộp bài không?`,
-        confirmLabel: 'Nộp bài', cancelLabel: 'Tiếp tục làm',
+        type:'confirm', title:'Nộp Bài',
+        message:`Bạn đã trả lời ${answered}/${allQIds.length} câu.\nBạn có chắc muốn nộp bài không?`,
+        confirmLabel:'Nộp bài', cancelLabel:'Tiếp tục làm',
       });
       if (!ok) return;
     }
@@ -137,24 +137,24 @@ export default function QuizPage() {
   }
 
   if (!exam) return (
-    <div className="min-h-screen flex items-center justify-center">
+    <div className="min-h-screen flex items-center justify-center" style={{background:'var(--bg-grad)'}}>
       <LoadingSpinner size={40} text="Đang tải đề thi..." />
     </div>
   );
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col" style={{background:'var(--bg-grad)'}}>
       {dialogEl}
       {/* Header */}
       <header className="app-header sticky top-0 z-50 px-3 md:px-4 py-2 flex items-center justify-between gap-2">
         <Link href="/">
-          <button className="text-purple-400 hover:text-amber-400 transition flex items-center gap-1 text-sm font-noto" style={{minHeight:'44px'}}>
+          <button className="flex items-center gap-1 text-sm font-noto transition" style={{color:'var(--text-muted)',minHeight:'44px'}}>
             <ArrowLeft size={14} /> <span className="hidden sm:inline">Quay lại</span>
           </button>
         </Link>
         <div className="flex-1 flex justify-center px-2">
-          <span className="px-3 py-1 rounded-full text-xs md:text-sm font-semibold text-amber-300 font-cinzel truncate max-w-xs"
-            style={{ background:'rgba(59,42,109,0.4)', border:'1px solid rgba(245,158,11,0.3)' }}>
+          <span className="px-3 py-1 rounded-full text-xs md:text-sm font-semibold font-cinzel truncate max-w-xs"
+            style={{ background:`color-mix(in srgb, var(--gold) 14%, transparent)`, border:'1px solid var(--border-card)', color:'var(--gold)' }}>
             {exam.data.meta.subject} · {exam.data.meta.exam} · {exam.data.meta.level}
           </span>
         </div>
@@ -168,11 +168,11 @@ export default function QuizPage() {
 
       {/* Body */}
       <div className="flex flex-1 overflow-hidden">
-        {/* Questions - full width on mobile */}
+        {/* Questions */}
         <main className="flex-1 px-3 md:px-5 py-4 overflow-y-auto" style={{ height:'calc(100vh - 52px)' }}>
           <div className="flex items-center justify-between mb-4">
-            <h1 className="text-amber-400 font-semibold text-sm font-noto">{exam.data.meta.title}</h1>
-            <span className="text-xs text-purple-500 font-noto">{answeredCount}/{totalCount} đã trả lời</span>
+            <h1 className="font-semibold text-sm font-noto" style={{color:'var(--gold)'}}>{exam.data.meta.title}</h1>
+            <span className="text-xs font-noto" style={{color:'var(--text-dim)'}}>{answeredCount}/{totalCount} đã trả lời</span>
           </div>
           {exam.data.questions.map((q, idx) => (
             <QuestionCard key={q.id} question={q} index={idx+1} selected={answers[q.id]||[]} onChange={handleAnswerChange} />
@@ -183,31 +183,27 @@ export default function QuizPage() {
           <div className="h-24 md:h-8" />
         </main>
 
-        {/* RIGHT SIDEBAR - w-72 on desktop */}
+        {/* RIGHT SIDEBAR — w-72 desktop */}
         <aside className="hidden md:flex w-72 flex-shrink-0 flex-col p-4 gap-3 overflow-y-auto"
-          style={{ height:'calc(100vh - 52px)', borderLeft:'1px solid rgba(59,42,109,0.4)', background:'rgba(3,3,8,0.7)' }}>
-          {/* Progress card - full width */}
+          style={{ height:'calc(100vh - 52px)', borderLeft:'1px solid var(--border-card)', background:'var(--bg-sidebar)' }}>
           <div className="mystical-card p-4 text-center flex-shrink-0">
-            <div className="text-3xl font-bold text-amber-400 gold-glow font-cinzel">
-              {answeredCount}<span className="text-lg text-purple-500">/{totalCount}</span>
+            <div className="text-3xl font-bold gold-glow font-cinzel" style={{color:'var(--gold)'}}>
+              {answeredCount}<span className="text-lg" style={{color:'var(--text-dim)'}}>/{totalCount}</span>
             </div>
-            <p className="text-xs text-purple-500 mt-1 font-noto">Đã trả lời</p>
-            <div className="mt-3 h-2 rounded-full overflow-hidden w-full" style={{ background:'rgba(59,42,109,0.3)' }}>
+            <p className="text-xs mt-1 font-noto" style={{color:'var(--text-dim)'}}>Đã trả lời</p>
+            <div className="mt-3 h-2 rounded-full overflow-hidden w-full" style={{ background:`color-mix(in srgb, var(--gold) 15%, transparent)` }}>
               <div className="h-full rounded-full transition-all"
                 style={{ width:`${totalCount > 0 ? (answeredCount/totalCount)*100 : 0}%`,
-                  background:'linear-gradient(90deg,#92400e,#f59e0b)' }} />
+                  background:'linear-gradient(90deg, var(--gold-dark), var(--gold))' }} />
             </div>
-            <p className="text-xs text-purple-600 mt-1 font-noto">
+            <p className="text-xs mt-1 font-noto" style={{color:'var(--text-dim)'}}>
               {totalCount > 0 ? Math.round((answeredCount/totalCount)*100) : 0}% hoàn thành
             </p>
           </div>
-
           <hr className="divider-gold flex-shrink-0" />
-
           <SectionNav sections={exam.data.meta.sections} passages={exam.data.passages || []}
             answers={answers} currentQuestionId={currentQId}
             onNavigate={navQ} onNavigatePassage={navP} />
-
           <button className="btn-gold w-full text-sm flex items-center justify-center gap-2 flex-shrink-0 mt-auto font-cinzel"
             onClick={() => handleSubmit(false)}>
             <Send size={13} /> Nộp bài
@@ -220,10 +216,10 @@ export default function QuizPage() {
         <button
           className="flex items-center gap-2 rounded-full text-sm font-bold shadow-lg font-cinzel"
           style={{
-            background:'linear-gradient(135deg,#3b2a6d,#123c3b)',
-            border:'1px solid rgba(245,158,11,0.5)',
-            color:'#fbbf24', padding:'10px 16px',
-            boxShadow:'0 0 20px rgba(59,42,109,0.6)', minHeight:'44px',
+            background:`linear-gradient(135deg, color-mix(in srgb, var(--gold-dark) 80%, #000), var(--gold))`,
+            border:'1px solid var(--gold)', color:'#030308',
+            padding:'10px 16px', minHeight:'44px',
+            boxShadow:'0 0 20px color-mix(in srgb, var(--gold) 40%, transparent)',
           }}
           onClick={() => setDrawerOpen(true)}>
           <ListOrdered size={16} />{answeredCount}/{totalCount}<ChevronUp size={14} />
@@ -233,32 +229,31 @@ export default function QuizPage() {
       {/* Mobile Bottom Drawer */}
       {drawerOpen && (
         <div className="md:hidden fixed inset-0 z-50 flex flex-col justify-end">
-          <div className="absolute inset-0" style={{background:'rgba(3,3,8,0.7)'}} onClick={() => setDrawerOpen(false)} />
+          <div className="absolute inset-0" style={{background:'rgba(0,0,0,0.6)'}} onClick={() => setDrawerOpen(false)} />
           <div className="relative drawer-enter rounded-t-2xl flex flex-col"
-            style={{background:'radial-gradient(ellipse at 50% 100%, #3b2a6d 0%, #0a0f1f 60%, #030308 100%)',
-              border:'1px solid rgba(245,158,11,0.3)',borderBottom:'none',maxHeight:'70vh'}}>
+            style={{ background:'var(--bg-sidebar)', border:'1px solid var(--border-card)', borderBottom:'none', maxHeight:'72vh' }}>
             <div className="flex justify-center pt-3 pb-1">
-              <div className="w-10 h-1 rounded-full" style={{background:'rgba(245,158,11,0.3)'}} />
+              <div className="w-10 h-1 rounded-full" style={{background:'var(--border-card)'}} />
             </div>
-            <div className="flex items-center justify-between px-5 py-3" style={{borderBottom:'1px solid rgba(59,42,109,0.4)'}}>
+            <div className="flex items-center justify-between px-5 py-3" style={{borderBottom:'1px solid var(--border-card)'}}>
               <div className="flex items-center gap-2">
-                <ListOrdered size={16} className="text-amber-400" />
-                <span className="text-amber-400 font-bold text-sm font-cinzel">Câu hỏi</span>
-                <span className="text-xs text-purple-500 font-noto">{answeredCount}/{totalCount}</span>
+                <ListOrdered size={16} style={{color:'var(--gold)'}} />
+                <span className="font-bold text-sm font-cinzel" style={{color:'var(--gold)'}}>Câu hỏi</span>
+                <span className="text-xs font-noto" style={{color:'var(--text-dim)'}}>{answeredCount}/{totalCount}</span>
               </div>
-              <button onClick={() => setDrawerOpen(false)} className="text-purple-400 hover:text-amber-400 p-1"><X size={18} /></button>
+              <button onClick={() => setDrawerOpen(false)} style={{color:'var(--text-muted)'}}><X size={18} /></button>
             </div>
             <div className="px-5 py-2">
-              <div className="h-1.5 rounded-full overflow-hidden" style={{background:'rgba(59,42,109,0.3)'}}>
+              <div className="h-1.5 rounded-full overflow-hidden" style={{background:`color-mix(in srgb, var(--gold) 15%, transparent)`}}>
                 <div className="h-full rounded-full transition-all"
-                  style={{width:`${totalCount>0?(answeredCount/totalCount)*100:0}%`,background:'linear-gradient(90deg,#92400e,#f59e0b)'}} />
+                  style={{width:`${totalCount>0?(answeredCount/totalCount)*100:0}%`, background:'var(--gold)'}} />
               </div>
             </div>
             <div className="flex-1 overflow-y-auto px-5 pb-3">
               <SectionNav sections={exam.data.meta.sections} passages={exam.data.passages || []}
                 answers={answers} currentQuestionId={currentQId} onNavigate={navQ} onNavigatePassage={navP} />
             </div>
-            <div className="px-5 pb-6 pt-2" style={{borderTop:'1px solid rgba(59,42,109,0.3)'}}>
+            <div className="px-5 pb-6 pt-2" style={{borderTop:'1px solid var(--border-card)'}}>
               <button className="btn-gold w-full flex items-center justify-center gap-2 font-cinzel"
                 onClick={() => { setDrawerOpen(false); handleSubmit(false); }}>
                 <Send size={14} /> Nộp bài

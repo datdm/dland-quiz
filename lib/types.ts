@@ -1,8 +1,8 @@
 export interface Section { name:string; mondai?:string; questionIds:number[]; passageIds?:string[]; }
 export interface QuizMeta { title:string; subject:string; level:string; exam:string; version:string; totalQuestions:number; timeLimit:number; sections:Section[]; }
-export interface Question { id:number; question:string; type:'single'|'multiple'; options:string[]; answers:number[]; explanation?:string; }
-export interface SubQuestion { id:number; question:string; type:'single'|'multiple'; options:string[]; answers:number[]; explanation?:string; }
-export interface PassageGroup { kind:'passage'; id:string; mondai?:string; passageTitle?:string; passageText:string; questions:SubQuestion[]; }
+export interface Question { id:number; question:string; type:'single'|'multiple'; options:string[]; answers:number[]; explanation?:string; audioUrl?:string; }
+export interface SubQuestion { id:number; question:string; type:'single'|'multiple'; options:string[]; answers:number[]; explanation?:string; audioUrl?:string; }
+export interface PassageGroup { kind:'passage'; id:string; mondai?:string; passageTitle?:string; passageText:string; passageAudioUrl?:string; questions:SubQuestion[]; }
 export interface QuizData { meta:QuizMeta; questions:Question[]; passages?:PassageGroup[]; }
 export interface StoredExam { id:string; uploadedAt:string; data:QuizData; }
 export interface QuizProgress { examId:string; userId:string; answers:Record<number,number[]>; startedAt:number; timeRemaining:number; }

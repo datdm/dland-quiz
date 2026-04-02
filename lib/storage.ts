@@ -10,11 +10,7 @@ export function getProgress(examId:string,userId:string):QuizProgress|null {
 }
 export function saveProgress(p:QuizProgress){sessionStorage.setItem(K.PFX+p.examId+'_'+p.userId,JSON.stringify(p));}
 export function clearProgress(examId:string,userId:string){sessionStorage.removeItem(K.PFX+examId+'_'+userId);}
-export function getResults():QuizResult[]{if(typeof window==='undefined')return[];try{return JSON.parse(localStorage.getItem(K.RESULTS)||'[]');}catch{return[];}  }
+export function getResults():QuizResult[]{if(typeof window==='undefined')return[];try{return JSON.parse(localStorage.getItem(K.RESULTS)||'[]');}catch{return[];}}
 export function getResultsByUser(userId:string){return getResults().filter(r=>r.userId===userId);}
 export function saveResult(result:QuizResult){const a=getResults();a.unshift(result);localStorage.setItem(K.RESULTS,JSON.stringify(a));}
 export function generateId(){return Date.now().toString(36)+Math.random().toString(36).slice(2);}
-export function clearAllData(){
-  localStorage.removeItem('qp_exams');
-  localStorage.removeItem('qp_results');
-}
