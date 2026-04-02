@@ -1,0 +1,277 @@
+{
+  "meta": {
+    "title": "TOEIC Part 5 — Incomplete Sentences",
+    "subject": "TOEIC",
+    "level": "750+",
+    "exam": "Part 5 — Incomplete Sentences",
+    "version": "1.0",
+    "totalQuestions": 15,
+    "timeLimit": 600,
+    "sections": [
+      {
+        "name": "Grammar",
+        "mondai": "Section A",
+        "questionIds": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "passageIds": []
+      },
+      {
+        "name": "Vocabulary",
+        "mondai": "Section B",
+        "questionIds": [
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "passageIds": []
+      },
+      {
+        "name": "Prepositions & Conjunctions",
+        "mondai": "Section C",
+        "questionIds": [
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "passageIds": []
+      }
+    ]
+  },
+  "questions": [
+    {
+      "id": 1,
+      "question": "The new policy _____ implemented next quarter to reduce operational costs.",
+      "type": "single",
+      "options": [
+        "will be",
+        "are being",
+        "have been",
+        "being"
+      ],
+      "answers": [
+        0
+      ],
+      "explanation": "Future passive: 'will be implemented'. The policy hasn't happened yet (next quarter)."
+    },
+    {
+      "id": 2,
+      "question": "Neither the manager nor the employees _____ aware of the schedule change.",
+      "type": "single",
+      "options": [
+        "was",
+        "were",
+        "has been",
+        "is"
+      ],
+      "answers": [
+        1
+      ],
+      "explanation": "Neither...nor: verb agrees with the nearest subject (employees = plural → were)."
+    },
+    {
+      "id": 3,
+      "question": "The report, _____ was submitted last Friday, included several recommendations.",
+      "type": "single",
+      "options": [
+        "who",
+        "which",
+        "what",
+        "whose"
+      ],
+      "answers": [
+        1
+      ],
+      "explanation": "'which' is used for things (report). 'who' is for people."
+    },
+    {
+      "id": 4,
+      "question": "Employees are encouraged _____ their concerns to the HR department directly.",
+      "type": "single",
+      "options": [
+        "express",
+        "to express",
+        "expressed",
+        "expressing"
+      ],
+      "answers": [
+        1
+      ],
+      "explanation": "'encouraged to + infinitive' is the correct structure."
+    },
+    {
+      "id": 5,
+      "question": "The statistics _____ that customer satisfaction has improved significantly this year.",
+      "type": "single",
+      "options": [
+        "indicate",
+        "indicates",
+        "indicated to",
+        "is indicating"
+      ],
+      "answers": [
+        0
+      ],
+      "explanation": "'Statistics' is plural here → plural verb 'indicate'."
+    },
+    {
+      "id": 6,
+      "question": "The company's quarterly earnings _____ all analyst expectations.",
+      "type": "single",
+      "options": [
+        "surpassed",
+        "reduced",
+        "allocated",
+        "deferred"
+      ],
+      "answers": [
+        0
+      ],
+      "explanation": "'Surpassed' = exceeded/went beyond. Fits earnings beating expectations."
+    },
+    {
+      "id": 7,
+      "question": "Please ensure that all documents are filed in _____ order for easy retrieval.",
+      "type": "single",
+      "options": [
+        "chronological",
+        "permanent",
+        "ambitious",
+        "flexible"
+      ],
+      "answers": [
+        0
+      ],
+      "explanation": "'Chronological order' = arranged by time/date."
+    },
+    {
+      "id": 8,
+      "question": "The CEO gave a _____ speech that motivated the entire workforce.",
+      "type": "single",
+      "options": [
+        "compelling",
+        "reluctant",
+        "tedious",
+        "vague"
+      ],
+      "answers": [
+        0
+      ],
+      "explanation": "'Compelling' = forcefully engaging/persuasive — positive context."
+    },
+    {
+      "id": 9,
+      "question": "The new branch will _____ serve customers in the northern region.",
+      "type": "single",
+      "options": [
+        "primarily",
+        "formerly",
+        "mutually",
+        "rapidly"
+      ],
+      "answers": [
+        0
+      ],
+      "explanation": "'Primarily' = mainly/chiefly."
+    },
+    {
+      "id": 10,
+      "question": "Staff members should _____ their vacation requests at least two weeks in advance.",
+      "type": "single",
+      "options": [
+        "submit",
+        "subscribe",
+        "suppress",
+        "suspend"
+      ],
+      "answers": [
+        0
+      ],
+      "explanation": "'Submit requests' is the correct collocation for a formal request."
+    },
+    {
+      "id": 11,
+      "question": "The conference will be held _____ March 15 and 17.",
+      "type": "single",
+      "options": [
+        "between",
+        "among",
+        "within",
+        "across"
+      ],
+      "answers": [
+        0
+      ],
+      "explanation": "'Between' is used for two specific points (March 15 and 17)."
+    },
+    {
+      "id": 12,
+      "question": "_____ the heavy rain, the outdoor event continued as planned.",
+      "type": "single",
+      "options": [
+        "Despite",
+        "Although",
+        "Because",
+        "Since"
+      ],
+      "answers": [
+        0
+      ],
+      "explanation": "'Despite + noun phrase'. 'Although' requires a clause."
+    },
+    {
+      "id": 13,
+      "question": "The new software is compatible _____ all major operating systems.",
+      "type": "single",
+      "options": [
+        "with",
+        "for",
+        "to",
+        "at"
+      ],
+      "answers": [
+        0
+      ],
+      "explanation": "'Compatible with' is the fixed preposition collocation."
+    },
+    {
+      "id": 14,
+      "question": "Applications must be received _____ 5:00 PM on the closing date.",
+      "type": "single",
+      "options": [
+        "by",
+        "until",
+        "since",
+        "during"
+      ],
+      "answers": [
+        0
+      ],
+      "explanation": "'By 5:00 PM' = no later than 5:00 PM (deadline)."
+    },
+    {
+      "id": 15,
+      "question": "The budget was revised _____ unexpected expenses arose mid-year.",
+      "type": "single",
+      "options": [
+        "because",
+        "despite",
+        "unless",
+        "whether"
+      ],
+      "answers": [
+        0
+      ],
+      "explanation": "'Because' introduces the reason/cause for the revision."
+    }
+  ],
+  "passages": []
+}
